@@ -12,13 +12,25 @@
  
   <script>
     navigator.serviceWorker.register("ServerWorker.js");
-    
+
 
     const EnableNotification = () => {
-      Notification.requestPermission().then((permission)=> {
+       Notification.requestPermission().then((permission) => {
 
-        if(permission === "granted") alert("Thanks For Subscribe")
-      })
+          if (permission === 'granted') {
+             // get service worker
+             navigator.serviceWorker.ready.then((sw) => {
+                // subscribe
+                sw.pushManager.subscribe({
+                   userVisibleOnly: true,
+                   applicationServerKey: "test"
+                }).then((subscription) => {
+                   console.log(JSON.stringify(subscription));
+                   //document.write(JSON.stringify(subscription));
+                });
+             });
+          }
+       })
 
     }
   </script>
