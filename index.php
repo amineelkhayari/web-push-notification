@@ -23,7 +23,8 @@
                 // subscribe
                 sw.pushManager.subscribe({
                    userVisibleOnly: true,
-                   applicationServerKey: "test"
+                  //pulic Key From Token generator
+                   applicationServerKey: "BAjrwSGHu5nCW2nE1u9MmdUXZosDWIByptd0pZQF0P-7zfwuP7eCAIgtViBUDMixfpvcZyykTnkzDoxcuFV2QD4"
                 }).then((subscription) => {
                    console.log(JSON.stringify(subscription));
                    //document.write(JSON.stringify(subscription));
