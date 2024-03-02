@@ -11,9 +11,15 @@
     </button>
  
   <script>
+    navigator.serviceWorker.register("ServerWorker.js");
+    
 
     const EnableNotification = () => {
-      alert('Enable Notification')
+      Notification.requestPermission().then((permission)=> {
+
+        if(permission === "granted") alert("Thanks For Subscribe")
+      })
+
     }
   </script>
   </body>
